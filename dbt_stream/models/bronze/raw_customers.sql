@@ -9,4 +9,3 @@ FROM read_files(
     format => 'csv', 
     header => true
 )
--- {{ source('external_volume', 'customers') }}
