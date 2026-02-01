@@ -2,7 +2,7 @@
     materialized='incremental',
     incremental_strategy='merge',
     unique_key='order_id',
-    schema='silver'
+    schema='dbt_silver'
 ) }}
 
 SELECT * FROM {{ ref('raw_orders') }}

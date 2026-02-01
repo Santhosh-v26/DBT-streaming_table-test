@@ -2,7 +2,15 @@
     materialized='incremental',
     incremental_strategy='merge',
     unique_key='payment_id',
-    schema='silver'
+    schema='dbt_silver',
+    liquid_clustered_by=['customer_id', 'payment_date'],
+    tblproperties={
+      'delta.autoOptimize.optimizeWrite': 'true',
+      'delta.autoOptimize.autoCompact': 'true'
+    },
+    post_hook=[
+      "OPTIMIZE {{ this }}"
+    ]
 ) }}
 
 SELECT * FROM {{ ref('raw_payments') }}

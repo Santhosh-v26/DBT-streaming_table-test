@@ -32,16 +32,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_stream:
     # Config indicated by + and applies to all files under models/example/
-    +catalog: dbt_streaming_test
+    +catalog: madhan_poc
     bronze:
       +materialized: table
-      +schema: bronze
+      +schema: dbt_bronze
       +tags: ['streaming_layer']
     silver:
       +materialized: table
-      +schema: silver
+      +schema: dbt_silver
       +tags: ['streaming_layer']
     gold:
       +materialized: table
-      +schema: gold
+      +schema: dbt_gold
       +tags: ['streaming_layer']

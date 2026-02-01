@@ -1,6 +1,6 @@
 {{ config(
     materialized='table',
-    schema='gold'
+    schema='dbt_gold'
 ) }}
 
 WITH monthly_summary AS (
